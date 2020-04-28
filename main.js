@@ -73,11 +73,17 @@ const buildPies = (pieCollection) => {
   let domString = '';
 
   for (let i = 0; i < pieCollection.length; i++) {
+    const aLaModeText = (pieCollection[i].aLaMode) ? 'w/Ice Cream' : 'w/o Ice Cream';
+
     domString += `
       <div class="pie">
         <h2>${pieCollection[i].type}</h2>
         <img src="${pieCollection[i].imageUrl}" alt="image of ${pieCollection[i].type} pie">
-        <p>This ${pieCollection[i].type} pie is a ${pieCollection[i].size} pie, it's owned by ${pieCollection[i].owner}, and has a ${pieCollection[i].crust} crust.</p>
+        <p>
+          This ${pieCollection[i].type} pie is a ${pieCollection[i].size} pie, it's owned by ${pieCollection[i].owner},
+          <br>
+          and has a ${pieCollection[i].crust} crust, and is served ${aLaModeText}
+        </p>
         <h4>Price: ${pieCollection[i].price}</h4>
       </div>
     `;
