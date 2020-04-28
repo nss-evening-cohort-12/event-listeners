@@ -64,6 +64,14 @@ const pies = [
   }
 ];
 
+/*
+ * 1. Make 4 buttons: 1 for each instructor, and 1 for "all pies" √
+ * 2. When you click on a button, do the filter thing
+ *  a. Console.log out a button click
+ *  b. filter collection?
+ * 3. Reprint the dom with the filtered pies?
+ */
+
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
@@ -86,8 +94,28 @@ const buildPies = (pieCollection) => {
   printToDom('#pieContainer', domString);
 }
 
+const filterPiesEvent = (event) => {
+  const buttonId = event.target.id;
+  const tempPieCollection = [];
+
+  for (let i = 0; i < pies.length; i++) {
+    if (pies[i].owner === buttonId) {
+      tempPieCollection.push(pies[i]);
+    }
+  }
+
+  buildPies(tempPieCollection);
+}
+
+const clickEvents = () => {
+  document.querySelector('#luke').addEventListener('click', filterPiesEvent);
+  document.querySelector('#michael').addEventListener('click', filterPiesEvent);
+  document.querySelector('#matt').addEventListener('click', filterPiesEvent);
+}
+
 const init = () => {
   buildPies(pies);
+  clickEvents();
 }
 
 init();
