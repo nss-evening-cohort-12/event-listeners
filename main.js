@@ -1,6 +1,8 @@
 const pies = [
   {
+    id: '1',
     type: 'Apple',
+    name: 'Some Name Here',
     size: 'Family',
     crust: 'Lattuce',
     price: 30,
@@ -9,7 +11,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: '2',
     type: 'Pecan',
+    name: 'Some Name Here',
     size: 'Personal',
     crust: 'Basic Flaky',
     price: 3,
@@ -18,7 +22,9 @@ const pies = [
     aLaMode: false
   },
   {
+    id: '3',
     type: 'Blueberry',
+    name: 'Some Name Here',
     size: 'Regular',
     crust: 'Crumb',
     price: 400,
@@ -27,7 +33,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: '4',
     type: 'Meat Pie',
+    name: 'Some Name Here',
     size: 'Real Big',
     crust: 'Meat Crust',
     price: 1,
@@ -36,7 +44,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: '5',
     type: 'Pizza Pie',
+    name: 'Some Name Here',
     size: 'XL',
     crust: 'regular',
     price: 6,
@@ -45,7 +55,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: '6',
     type: 'Rhubarb',
+    name: 'Some Name Here',
     size: 'Pie Sized',
     crust: 'Normal',
     price: 2147483647,
@@ -54,7 +66,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: '7',
     type: 'Spanakopita',
+    name: 'Some Name Here',
     size: 'Pan',
     crust: 'Filo',
     price: 8,
@@ -69,27 +83,44 @@ const printToDom = (selector, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+const clickOnPieEvent = (e) => {
+  console.log(e.target);
+  for (let i = 0; i < pies.length; i++) {
+    const pie = pies[i];
+    if (pie.id === e.target.id) {
+      console.log('You clicked on this pie:', pie);
+    }
+  }
+}
+
 const buildPies = (pieCollection) => {
   let domString = '';
 
   for (let i = 0; i < pieCollection.length; i++) {
-    const aLaModeText = (pieCollection[i].aLaMode) ? 'w/Ice Cream' : 'w/o Ice Cream';
+    const pie = pieCollection[i];
+    const aLaModeText = (pie.aLaMode) ? 'w/Ice Cream' : 'w/o Ice Cream';
 
     domString += `
-      <div class="pie">
-        <h2>${pieCollection[i].type}</h2>
-        <img src="${pieCollection[i].imageUrl}" alt="image of ${pieCollection[i].type} pie">
+      <div class="pie" id="${pie.id}">
+        <h2>${pie.type}</h2>
+        <img src="${pie.imageUrl}" alt="image of ${pie.type} pie">
         <p>
-          This ${pieCollection[i].type} pie is a ${pieCollection[i].size} pie, it's owned by ${pieCollection[i].owner},
+          This ${pie.type} pie is a ${pie.size} pie, it's owned by ${pie.owner},
           <br>
-          and has a ${pieCollection[i].crust} crust, and is served ${aLaModeText}
+          and has a ${pie.crust} crust, and is served ${aLaModeText}
         </p>
-        <h4>Price: ${pieCollection[i].price}</h4>
+        <h4>Price: ${pie.price}</h4>
       </div>
     `;
   }
 
   printToDom('#pieContainer', domString);
+
+  const pieCards = document.querySelectorAll('.pie');
+  for (let i = 0; i < pieCards.length; i++) {
+    const pieCard = pieCards[i];
+    pieCard.addEventListener('click', clickOnPieEvent);
+  }
 }
 
 const filterPiesEvent = (event) => {
