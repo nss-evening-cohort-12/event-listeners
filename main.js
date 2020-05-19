@@ -1,6 +1,7 @@
 const pies = [
   {
     id: '1',
+    taxRate: .07,
     type: 'Apple',
     name: 'Some Name Here',
     size: 'Family',
@@ -12,6 +13,7 @@ const pies = [
   },
   {
     id: '2',
+    taxRate: .08,
     type: 'Pecan',
     name: 'Some Name Here',
     size: 'Personal',
@@ -23,6 +25,7 @@ const pies = [
   },
   {
     id: '3',
+    taxRate: .07,
     type: 'Blueberry',
     name: 'Some Name Here',
     size: 'Regular',
@@ -35,6 +38,7 @@ const pies = [
   {
     id: '4',
     type: 'Meat Pie',
+    taxRate: .1,
     name: 'Some Name Here',
     size: 'Real Big',
     crust: 'Meat Crust',
@@ -46,6 +50,7 @@ const pies = [
   {
     id: '5',
     type: 'Pizza Pie',
+    taxRate: .02,
     name: 'Some Name Here',
     size: 'XL',
     crust: 'regular',
@@ -57,6 +62,7 @@ const pies = [
   {
     id: '6',
     type: 'Rhubarb',
+    taxRate: .04,
     name: 'Some Name Here',
     size: 'Pie Sized',
     crust: 'Normal',
@@ -68,6 +74,7 @@ const pies = [
   {
     id: '7',
     type: 'Spanakopita',
+    taxRate: .07,
     name: 'Some Name Here',
     size: 'Pan',
     crust: 'Filo',
