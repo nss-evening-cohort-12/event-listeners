@@ -22,8 +22,9 @@ This is an example project to show of super basic event listeners in JavaScript.
 
 ## TODO/Feature Request
 - [ ] Style the buttons
-- [ ] Use bootstrap?
+- [ ] Use bortstrap?
 - [ ] Someting else!
+
 
 code block example:
 ```html
