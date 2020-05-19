@@ -1,6 +1,8 @@
 const pies = [
   {
+    id: 1,
     type: 'Apple',
+    taxRate: .07,
     size: 'Family',
     crust: 'Lattuce',
     price: 30,
@@ -9,7 +11,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: 2,
     type: 'Pecan',
+    taxRate: .08,
     size: 'Personal',
     crust: 'Basic Flaky',
     price: 3,
@@ -18,7 +22,9 @@ const pies = [
     aLaMode: false
   },
   {
+    id: 3,
     type: 'Blueberry',
+    taxRate: .07,
     size: 'Regular',
     crust: 'Crumb',
     price: 400,
@@ -27,7 +33,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: 4,
     type: 'Meat Pie',
+    taxRate: .1,
     size: 'Real Big',
     crust: 'Meat Crust',
     price: 1,
@@ -36,7 +44,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: 5,
     type: 'Pizza Pie',
+    taxRate: .02,
     size: 'XL',
     crust: 'regular',
     price: 6,
@@ -45,7 +55,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: 6,
     type: 'Rhubarb',
+    taxRate: .04,
     size: 'Pie Sized',
     crust: 'Normal',
     price: 2147483647,
@@ -54,7 +66,9 @@ const pies = [
     aLaMode: true
   },
   {
+    id: 7,
     type: 'Spanakopita',
+    taxRate: .07,
     size: 'Pan',
     crust: 'Filo',
     price: 8,
@@ -67,6 +81,10 @@ const pies = [
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
+}
+
+const clickOnThemPies = (event) => {
+  console.log(event.target)
 }
 
 const buildPies = (pieCollection) => {
@@ -90,6 +108,11 @@ const buildPies = (pieCollection) => {
   }
 
   printToDom('#pieContainer', domString);
+
+  const allPieCards = document.querySelectorAll('.pie');
+  allPieCards.forEach(card => {
+    card.addEventListener('click', clickOnThemPies);
+  })
 }
 
 const filterPiesEvent = (event) => {
